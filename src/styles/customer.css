@@ -1,0 +1,908 @@
+/* Cineloom Customer Experience Stylesheet */
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: rgba(15, 16, 21, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 24px;
+}
+
+.navbar-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #990000 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.brand-text {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.brand-text span {
+  color: var(--accent-primary);
+}
+
+.city-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.city-selector:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+}
+
+.nav-search {
+  flex: 1;
+  max-width: 360px;
+  position: relative;
+}
+
+.nav-search-input {
+  width: 100%;
+  padding: 9px 14px 9px 38px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  font-size: 13.5px;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.nav-search-input:focus {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.nav-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.nav-link-btn:hover, .nav-link-btn.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.user-profile-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--accent-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Hero Showcase Banner */
+.hero-showcase {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 36px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-backdrop-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: brightness(0.7) contrast(1.1);
+  transform: scale(1.02);
+  transition: transform 6s ease;
+}
+.hero-showcase:hover .hero-backdrop-img {
+  transform: scale(1.06);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    var(--bg-primary) 0%,
+    rgba(15, 16, 21, 0.85) 45%,
+    rgba(15, 16, 21, 0.2) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hero-description {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/* Category Filter Bar */
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.status-tabs {
+  display: flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  gap: 4px;
+}
+
+.status-tab-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.status-tab-btn.active {
+  background: var(--accent-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.filter-pill {
+  padding: 7px 16px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.filter-pill.active {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+}
+
+.filter-dropdown-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-select {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Movie Catalog Grid */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.movie-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.movie-poster-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+}
+
+.movie-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.movie-card:hover .movie-poster-img {
+  transform: scale(1.05);
+}
+
+.movie-rating-chip {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(15, 16, 21, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-medium);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.movie-card-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.movie-card-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.movie-formats-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.movie-card-btn {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Movie Details Modal / View */
+.movie-details-hero {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 24px;
+  min-height: 240px;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.movie-details-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.movie-details-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--bg-secondary) 0%, rgba(22, 24, 33, 0.6) 100%);
+}
+
+.movie-details-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.movie-details-poster {
+  width: 120px;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-medium);
+}
+
+.movie-details-meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cast-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.cast-chip {
+  background: var(--bg-tertiary);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+}
+
+/* Theatre & Showtime Picker */
+.schedule-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.date-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+}
+
+.date-card-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.date-card-btn:hover {
+  border-color: var(--border-strong);
+}
+
+.date-card-btn.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.date-day-name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.date-day-num {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.theatre-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theatre-info-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 12px;
+}
+
+.theatre-name {
+  font-size: 16.5px;
+  font-weight: 700;
+}
+
+.theatre-location {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.showtimes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.showtime-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 9px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 105px;
+}
+
+.showtime-pill:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+}
+
+.showtime-time {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.showtime-format {
+  font-size: 11px;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.showtime-price {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Seat Selection View */
+.seat-booking-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+}
+
+.screen-indicator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px 0 20px;
+}
+
+.curved-cinema-screen {
+  width: 100%;
+  height: 12px;
+  background: linear-gradient(180deg, #60a5fa 0%, transparent 100%);
+  border-top: 3px solid #93c5fd;
+  border-radius: 50% / 100% 100% 0 0;
+  box-shadow: 0 -4px 20px rgba(96, 165, 250, 0.4);
+}
+
+.screen-text {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.seat-matrix-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.seat-category-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-light);
+}
+
+.seat-category-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  align-self: flex-start;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seat-row-letter {
+  width: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.seat-button {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.seat-btn-available {
+  background: var(--seat-available);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+.seat-btn-available:hover {
+  background: var(--bg-elevated);
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.seat-btn-selected {
+  background: var(--seat-selected);
+  color: #fff;
+  border-color: #ff4d58;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: scale(1.08);
+  animation: seatPop 200ms ease;
+}
+
+.seat-btn-booked {
+  background: #181a20;
+  color: #4b5563;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.04);
+}
+
+.seat-btn-locked {
+  background: var(--seat-locked);
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.seat-aisle-gap {
+  width: 20px;
+}
+
+.seat-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.legend-sample {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+/* Lock Timer Bar */
+.lock-timer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  border-radius: var(--radius-md);
+  width: 100%;
+  color: #fca5a5;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.timer-digits {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Booking Summary Price Breakdown */
+.summary-line-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 6px 0;
+}
+
+.summary-line-item.highlight {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+  border-top: 1px solid var(--border-medium);
+  padding-top: 12px;
+  margin-top: 6px;
+}
+
+.coupon-apply-box {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+/* Digital Ticket Pass */
+.ticket-pass-card {
+  background: #1a1c26;
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.ticket-notch-left, .ticket-notch-right {
+  position: absolute;
+  top: 55%;
+  width: 20px;
+  height: 20px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+}
+.ticket-notch-left { left: -10px; }
+.ticket-notch-right { right: -10px; }
+
+.ticket-qr-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  margin: 0 auto;
+}
+
+.qr-matrix-sim {
+  width: 130px;
+  height: 130px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 3px;
+  background: #fff;
+}
+
+.qr-cell {
+  background: #000;
+  border-radius: 1px;
+}
+.qr-cell.white {
+  background: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 26px;
+  }
+  .hero-content {
+    padding: 20px;
+  }
+  .navbar-inner {
+    flex-wrap: wrap;
+  }
+  .nav-search {
+    order: 3;
+    max-width: 100%;
+  }
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+}
