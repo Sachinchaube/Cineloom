@@ -399,6 +399,74 @@ button {
   transform: translateY(-1px);
 }
 
+/* Gunnu Special Button & Dropdown */
+.gunnu-btn-container {
+  position: relative;
+}
+
+.gunnu-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.18), rgba(229, 169, 60, 0.18));
+  border: 1px solid var(--accent-gold);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: 0 0 10px rgba(229, 169, 60, 0.15);
+  white-space: nowrap;
+}
+
+.gunnu-dropdown-btn:hover {
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.35), rgba(229, 169, 60, 0.35));
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(229, 169, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+.gunnu-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  min-width: 170px;
+  box-shadow: var(--shadow-lg);
+  z-index: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.gunnu-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: var(--transition-fast);
+}
+
+.gunnu-menu-item:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+}
+
 .modal-close-btn {
   display: flex;
   align-items: center;
