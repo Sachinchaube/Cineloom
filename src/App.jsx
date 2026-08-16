@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 import { BookingProvider, useBooking } from './context/BookingContext';
@@ -183,12 +184,14 @@ function MainApp() {
 
 export default function App() {
   return (
-    <NotificationProvider>
-      <AuthProvider>
-        <BookingProvider>
-          <MainApp />
-        </BookingProvider>
-      </AuthProvider>
-    </NotificationProvider>
+    <ThemeProvider>
+      <NotificationProvider>
+        <AuthProvider>
+          <BookingProvider>
+            <MainApp />
+          </BookingProvider>
+        </AuthProvider>
+      </NotificationProvider>
+    </ThemeProvider>
   );
 }

@@ -355,8 +355,8 @@ export const UNIT_TEST_SUITES = [
           // Arrange
           const show = showService.getAllShows()[0];
           const mockSeats = [
-            { seatNumber: 'D4', categoryName: 'Premium', basePrice: 16.50 },
-            { seatNumber: 'G1', categoryName: 'VIP Recliner', basePrice: 22.00 }
+            { seatNumber: 'D4', categoryName: 'Premium', basePrice: 320.0 },
+            { seatNumber: 'G1', categoryName: 'VIP Recliner', basePrice: 480.0 }
           ];
 
           // Act
@@ -367,8 +367,8 @@ export const UNIT_TEST_SUITES = [
 
           // Assert
           expect(calculation.seatCount).toBe(2);
-          expect(calculation.subtotal).toBeGreaterThan(30);
-          expect(calculation.convenienceFee).toBe(3.00); // 2 * $1.50
+          expect(calculation.subtotal).toBeGreaterThan(600);
+          expect(calculation.convenienceFee).toBe(70.00); // 2 * ₹35.00
           expect(calculation.taxAmount).toBeGreaterThan(0);
           expect(calculation.totalAmount).toBeGreaterThan(calculation.subtotal);
         }
@@ -380,15 +380,15 @@ export const UNIT_TEST_SUITES = [
         type: 'POSITIVE',
         run() {
           // Arrange
-          const subtotal = 100.0;
-          const couponCode = 'CINELOOM20'; // 20% capped at $10
+          const subtotal = 1000.0;
+          const couponCode = 'CINELOOM20'; // 20% capped at ₹150
 
           // Act
           const validation = pricingService.validateCoupon(couponCode, subtotal);
 
           // Assert
           expect(validation.valid).toBe(true);
-          expect(validation.discountAmount).toBe(10.0); // Capped at $10 max
+          expect(validation.discountAmount).toBe(150.0); // Capped at ₹150 max
         }
       },
       {
@@ -398,8 +398,8 @@ export const UNIT_TEST_SUITES = [
         type: 'NEGATIVE',
         run() {
           // Arrange
-          const smallSubtotal = 10.0;
-          const couponCode = 'VIPEXPERIENCE'; // Requires min $35
+          const smallSubtotal = 100.0;
+          const couponCode = 'VIPEXPERIENCE'; // Requires min ₹600
 
           // Act
           const validation = pricingService.validateCoupon(couponCode, smallSubtotal);
@@ -439,7 +439,7 @@ export const UNIT_TEST_SUITES = [
           // Arrange
           const user = authService.getAllUsers()[0];
           const show = showService.getAllShows()[0];
-          const selectedSeats = [{ seatNumber: 'H9', categoryName: 'VIP Recliner', basePrice: 22.0 }];
+          const selectedSeats = [{ seatNumber: 'H9', categoryName: 'VIP Recliner', basePrice: 480.0 }];
 
           // Act
           const booking = await bookingService.createBooking({

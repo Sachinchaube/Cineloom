@@ -138,7 +138,7 @@ export const showService = {
       date: showData.date,
       startTime: showData.startTime,
       endTime: endTime,
-      basePrice: Number(showData.basePrice) || (screen.format.includes('IMAX') ? 18.0 : 14.0),
+      basePrice: Number(showData.basePrice) || (screen.format.includes('IMAX') ? 380.0 : 250.0),
       isActive: true,
       bookedSeats: [],
       lockedSeats: {}

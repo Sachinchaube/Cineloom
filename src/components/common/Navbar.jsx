@@ -13,9 +13,12 @@ import {
   LogOut,
   ChevronDown,
   User,
-  SlidersHorizontal
+  SlidersHorizontal,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import { useTheme } from '../../context/ThemeContext';
 
 export function Navbar({
   activeView,
@@ -33,6 +36,7 @@ export function Navbar({
     switchDemoUser
   } = useAuth();
 
+  const { theme, toggleTheme, isDark } = useTheme();
   const { openHistory } = useBooking();
   const [cityMenuOpen, setCityMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -154,6 +158,27 @@ export function Navbar({
             style={{ color: 'var(--accent-teal)' }}
           >
             <CheckCircle size={15} /> Unit Tests
+          </button>
+
+          {/* Light / Dark Mode Toggle Button */}
+          <button
+            type="button"
+            className="theme-toggle-pill"
+            onClick={toggleTheme}
+            title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            aria-label="Toggle color theme"
+          >
+            {isDark ? (
+              <>
+                <Sun size={15} color="var(--accent-gold)" />
+                <span style={{ fontSize: '12px' }}>Light Mode</span>
+              </>
+            ) : (
+              <>
+                <Moon size={15} color="var(--accent-blue)" />
+                <span style={{ fontSize: '12px' }}>Dark Mode</span>
+              </>
+            )}
           </button>
 
           {/* User Account / Profile */}

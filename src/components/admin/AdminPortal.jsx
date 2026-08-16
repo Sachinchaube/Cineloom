@@ -90,7 +90,7 @@ export function AdminPortal() {
     screenId: theatres[0]?.screens[0]?.id || '',
     date: new Date().toISOString().split('T')[0],
     startTime: '07:30 PM',
-    basePrice: 15.0
+    basePrice: 250.0
   });
   const [scheduleConflictWarning, setScheduleConflictWarning] = useState(null);
 
@@ -100,8 +100,8 @@ export function AdminPortal() {
     description: '',
     discountType: 'PERCENTAGE',
     value: 15,
-    maxDiscount: 10,
-    minBookingAmount: 25,
+    maxDiscount: 150,
+    minBookingAmount: 400,
     expiryDate: '2026-12-31'
   });
 
@@ -274,7 +274,7 @@ export function AdminPortal() {
             <div className="kpi-grid">
               <div className="kpi-card">
                 <div className="kpi-title">Gross Revenue</div>
-                <div className="kpi-value">${stats.totalRevenue.toFixed(2)}</div>
+                <div className="kpi-value">₹{stats.totalRevenue.toFixed(2)}</div>
                 <div className="kpi-subtext">Confirmed ticket sales</div>
               </div>
 
@@ -335,7 +335,7 @@ export function AdminPortal() {
                           <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>{b.theatreName} • {b.screenName}</div>
                         </td>
                         <td>{b.seats.map(s => s.seatNumber).join(', ')}</td>
-                        <td style={{ fontWeight: 700 }}>${b.totalAmount.toFixed(2)}</td>
+                        <td style={{ fontWeight: 700 }}>₹{b.totalAmount.toFixed(2)}</td>
                         <td>
                           {b.bookingStatus === 'CONFIRMED' ? (
                             <span className="badge badge-status-confirmed">CONFIRMED</span>
@@ -521,10 +521,10 @@ export function AdminPortal() {
                 </div>
 
                 <div className="input-group">
-                  <label className="input-label">Base Ticket Price ($)</label>
+                  <label className="input-label">Base Ticket Price (₹)</label>
                   <input
                     type="number"
-                    step="0.5"
+                    step="10"
                     className="input-field"
                     value={showForm.basePrice}
                     onChange={e => handleShowFormChange('basePrice', e.target.value)}
@@ -627,7 +627,7 @@ export function AdminPortal() {
             }}>
               <div>
                 <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Convenience Fee</div>
-                <div style={{ fontSize: '18px', fontWeight: 800 }}>${pricingConfig.convenienceFeePerTicket?.toFixed(2)} / ticket</div>
+                <div style={{ fontSize: '18px', fontWeight: 800 }}>₹{pricingConfig.convenienceFeePerTicket?.toFixed(2)} / ticket</div>
               </div>
 
               <div>
@@ -679,12 +679,12 @@ export function AdminPortal() {
                     onChange={e => setCouponForm({ ...couponForm, discountType: e.target.value })}
                   >
                     <option value="PERCENTAGE">Percentage (%)</option>
-                    <option value="FLAT">Flat Amount ($)</option>
+                    <option value="FLAT">Flat Amount (₹)</option>
                   </select>
                 </div>
 
                 <div className="input-group">
-                  <label className="input-label">Value (% or $)</label>
+                  <label className="input-label">Value (% or ₹)</label>
                   <input
                     type="number"
                     className="input-field"
@@ -695,7 +695,7 @@ export function AdminPortal() {
                 </div>
 
                 <div className="input-group">
-                  <label className="input-label">Max Discount ($)</label>
+                  <label className="input-label">Max Discount (₹)</label>
                   <input
                     type="number"
                     className="input-field"
@@ -706,7 +706,7 @@ export function AdminPortal() {
                 </div>
 
                 <div className="input-group">
-                  <label className="input-label">Min Subtotal ($)</label>
+                  <label className="input-label">Min Subtotal (₹)</label>
                   <input
                     type="number"
                     className="input-field"
@@ -759,10 +759,10 @@ export function AdminPortal() {
                         </td>
                         <td>{c.description}</td>
                         <td style={{ fontWeight: 700 }}>
-                          {c.discountType === 'PERCENTAGE' ? `${c.value}%` : `$${c.value}`}
+                          {c.discountType === 'PERCENTAGE' ? `${c.value}%` : `₹${c.value}`}
                         </td>
-                        <td>${c.maxDiscount?.toFixed(2)}</td>
-                        <td>${c.minBookingAmount?.toFixed(2)}</td>
+                        <td>₹{c.maxDiscount?.toFixed(2)}</td>
+                        <td>₹{c.minBookingAmount?.toFixed(2)}</td>
                         <td>
                           <span className="badge badge-status-confirmed">ACTIVE</span>
                         </td>
@@ -840,7 +840,7 @@ export function AdminPortal() {
                           </div>
                         </td>
                         <td>{b.seats.map(s => s.seatNumber).join(', ')}</td>
-                        <td style={{ fontWeight: 700 }}>${b.totalAmount.toFixed(2)}</td>
+                        <td style={{ fontWeight: 700 }}>₹{b.totalAmount.toFixed(2)}</td>
                         <td>
                           <div style={{ fontSize: '12px' }}>{b.payment?.method}</div>
                           <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>ID: {b.payment?.paymentId?.slice(0, 14)}</div>

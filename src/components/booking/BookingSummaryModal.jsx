@@ -107,7 +107,7 @@ export function BookingSummaryModal() {
                 >
                   <span style={{ fontWeight: 700, color: 'var(--accent-primary)' }}>{s.seatNumber}</span>
                   <span style={{ color: 'var(--text-muted)' }}>({s.category})</span>
-                  <span style={{ fontWeight: 600 }}>${s.finalPrice.toFixed(2)}</span>
+                  <span style={{ fontWeight: 600 }}>₹{s.finalPrice.toFixed(2)}</span>
                 </div>
               ))}
             </div>
@@ -182,30 +182,30 @@ export function BookingSummaryModal() {
           }}>
             <div className="summary-line-item">
               <span>Tickets Subtotal</span>
-              <span>${pricingBreakdown.subtotal.toFixed(2)}</span>
+              <span>₹{pricingBreakdown.subtotal.toFixed(2)}</span>
             </div>
 
             {pricingBreakdown.discountAmount > 0 && (
               <div className="summary-line-item" style={{ color: '#34d399' }}>
                 <span>Coupon Discount ({pricingBreakdown.couponApplied?.code})</span>
-                <span>-${pricingBreakdown.discountAmount.toFixed(2)}</span>
+                <span>-₹{pricingBreakdown.discountAmount.toFixed(2)}</span>
               </div>
             )}
 
             <div className="summary-line-item">
               <span>Convenience & Booking Fee</span>
-              <span>${pricingBreakdown.convenienceFee.toFixed(2)}</span>
+              <span>₹{pricingBreakdown.convenienceFee.toFixed(2)}</span>
             </div>
 
             <div className="summary-line-item">
               <span>Taxes & GST ({pricingBreakdown.taxRate}%)</span>
-              <span>${pricingBreakdown.taxAmount.toFixed(2)}</span>
+              <span>₹{pricingBreakdown.taxAmount.toFixed(2)}</span>
             </div>
 
             <div className="summary-line-item highlight">
               <span>Grand Total</span>
               <span style={{ color: 'var(--accent-primary)', fontSize: '20px' }}>
-                ${pricingBreakdown.totalAmount.toFixed(2)}
+                ₹{pricingBreakdown.totalAmount.toFixed(2)}
               </span>
             </div>
           </div>
@@ -230,7 +230,7 @@ export function BookingSummaryModal() {
           </button>
 
           <button className="btn btn-primary btn-lg" onClick={proceedToPayment}>
-            <CreditCard size={18} /> Pay ${pricingBreakdown.totalAmount.toFixed(2)}
+            <CreditCard size={18} /> Pay ₹{pricingBreakdown.totalAmount.toFixed(2)}
           </button>
         </div>
       </div>

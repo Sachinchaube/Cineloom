@@ -1,12 +1,12 @@
-// Dynamic Pricing & Offers Calculation Service
+// Dynamic Pricing & Offers Calculation Service (INR - ₹)
 import { storageService } from './storageService';
 import { showService } from './showService';
 
 export const pricingService = {
   getPricingConfig() {
     return storageService.get(storageService.KEYS.PRICING) || {
-      convenienceFeePerTicket: 1.50,
-      taxRatePercent: 12.0,
+      convenienceFeePerTicket: 35.0,
+      taxRatePercent: 18.0,
       weekendSurchargeMultiplier: 1.15,
       eveningSurchargeMultiplier: 1.10,
       maxSeatsPerBooking: 8
@@ -40,8 +40,8 @@ export const pricingService = {
       description: couponData.description || 'Special discount',
       discountType: couponData.discountType || 'PERCENTAGE',
       value: Number(couponData.value),
-      maxDiscount: Number(couponData.maxDiscount) || 10.0,
-      minBookingAmount: Number(couponData.minBookingAmount) || 20.0,
+      maxDiscount: Number(couponData.maxDiscount) || 150.0,
+      minBookingAmount: Number(couponData.minBookingAmount) || 400.0,
       expiryDate: couponData.expiryDate || '2026-12-31',
       isActive: true
     };
@@ -74,7 +74,7 @@ export const pricingService = {
     if (subtotal < coupon.minBookingAmount) {
       return {
         valid: false,
-        message: `Minimum ticket subtotal of $${coupon.minBookingAmount.toFixed(2)} required for this code.`
+        message: `Minimum ticket subtotal of ₹${coupon.minBookingAmount.toFixed(0)} required for this code.`
       };
     }
 
@@ -122,18 +122,18 @@ export const pricingService = {
     const isWknd = show ? this.isWeekend(show.date) : false;
     const weekendMultiplier = isWknd ? (config.weekendSurchargeMultiplier || 1.15) : 1.0;
 
-    // Format premium
+    // Format premium in INR
     let formatPremium = 0;
     if (show && show.format) {
-      if (show.format.includes('IMAX')) formatPremium = 4.0;
-      else if (show.format.includes('4DX')) formatPremium = 5.0;
-      else if (show.format.includes('Dolby')) formatPremium = 3.0;
-      else if (show.format.includes('3D')) formatPremium = 2.0;
+      if (show.format.includes('IMAX')) formatPremium = 80.0;
+      else if (show.format.includes('4DX')) formatPremium = 100.0;
+      else if (show.format.includes('Dolby')) formatPremium = 60.0;
+      else if (show.format.includes('3D')) formatPremium = 40.0;
     }
 
     let subtotal = 0;
     const seatsBreakdown = selectedSeats.map(seat => {
-      const baseCategoryPrice = seat.basePrice || 14.0;
+      const baseCategoryPrice = seat.basePrice || 220.0;
       const adjustedPrice = (baseCategoryPrice + formatPremium) * weekendMultiplier;
       const roundedPrice = Number(adjustedPrice.toFixed(2));
       subtotal += roundedPrice;
@@ -161,13 +161,13 @@ export const pricingService = {
 
     const discountedSubtotal = Math.max(0, subtotal - discountAmount);
 
-    // Convenience fee & tax
+    // Convenience fee & tax in INR
     const convenienceFee = Number(
-      ((config.convenienceFeePerTicket || 1.50) * selectedSeats.length).toFixed(2)
+      ((config.convenienceFeePerTicket || 35.0) * selectedSeats.length).toFixed(2)
     );
     
     const taxableAmount = discountedSubtotal + convenienceFee;
-    const taxRate = config.taxRatePercent || 12.0;
+    const taxRate = config.taxRatePercent || 18.0;
     const taxAmount = Number(((taxableAmount * taxRate) / 100).toFixed(2));
 
     const totalAmount = Number((discountedSubtotal + convenienceFee + taxAmount).toFixed(2));

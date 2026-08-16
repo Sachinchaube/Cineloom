@@ -271,21 +271,21 @@ export const INITIAL_SEAT_CATEGORIES = [
   {
     id: 'cat-regular',
     name: 'Regular',
-    basePrice: 12.0,
+    basePrice: 220.0,
     rows: ['A', 'B', 'C'],
     description: 'Comfortable standard viewing rows'
   },
   {
     id: 'cat-premium',
     name: 'Premium',
-    basePrice: 16.5,
+    basePrice: 320.0,
     rows: ['D', 'E', 'F'],
     description: 'Optimum center viewing angle with extra legroom'
   },
   {
     id: 'cat-vip',
     name: 'VIP Recliner',
-    basePrice: 22.0,
+    basePrice: 480.0,
     rows: ['G', 'H'],
     description: 'Full leather recliner seats with dedicated service'
   }
@@ -326,7 +326,7 @@ export function generateInitialShows() {
             date: date,
             startTime: time,
             endTime: calculateEndTime(time, movie.durationMinutes || 140),
-            basePrice: screen.format.includes('IMAX') ? 18.0 : screen.format.includes('4DX') ? 19.5 : 14.0,
+            basePrice: screen.format.includes('IMAX') ? 380.0 : screen.format.includes('4DX') ? 420.0 : 250.0,
             isActive: true,
             bookedSeats: generatePreBookedSeats(date, tIdx),
             lockedSeats: {} // seatNumber: timestamp
@@ -367,39 +367,39 @@ function generatePreBookedSeats(date, timeIdx) {
 export const INITIAL_COUPONS = [
   {
     code: 'CINELOOM20',
-    description: '20% off on all movie tickets up to $10',
+    description: '20% off on all movie tickets up to ₹150',
     discountType: 'PERCENTAGE',
     value: 20,
-    maxDiscount: 10.0,
-    minBookingAmount: 20.0,
+    maxDiscount: 150.0,
+    minBookingAmount: 400.0,
     expiryDate: '2026-12-31',
     isActive: true
   },
   {
     code: 'FIRSTSHOW',
-    description: 'Flat $8 discount on your first booking',
+    description: 'Flat ₹100 discount on your first booking',
     discountType: 'FLAT',
-    value: 8.0,
-    maxDiscount: 8.0,
-    minBookingAmount: 25.0,
+    value: 100.0,
+    maxDiscount: 100.0,
+    minBookingAmount: 300.0,
     expiryDate: '2026-12-31',
     isActive: true
   },
   {
     code: 'VIPEXPERIENCE',
-    description: '15% instant discount on VIP Recliner bookings',
+    description: '15% instant discount on VIP Recliner bookings up to ₹250',
     discountType: 'PERCENTAGE',
     value: 15,
-    maxDiscount: 15.0,
-    minBookingAmount: 35.0,
+    maxDiscount: 250.0,
+    minBookingAmount: 600.0,
     expiryDate: '2026-12-31',
     isActive: true
   }
 ];
 
 export const INITIAL_PRICING_CONFIG = {
-  convenienceFeePerTicket: 1.50,
-  taxRatePercent: 12.0, // 12% GST/VAT
+  convenienceFeePerTicket: 35.0,
+  taxRatePercent: 18.0, // 18% GST
   weekendSurchargeMultiplier: 1.15,
   eveningSurchargeMultiplier: 1.10,
   maxSeatsPerBooking: 8,
@@ -433,9 +433,9 @@ export const INITIAL_USERS = [
     name: 'Alex Mercer',
     email: 'customer@cineloom.com',
     password: 'password123',
-    phone: '+1 555 019 2834',
+    phone: '+91 98765 43210',
     role: 'CUSTOMER',
-    city: 'New York',
+    city: 'Mumbai',
     createdAt: '2026-08-01'
   },
   {
@@ -443,9 +443,9 @@ export const INITIAL_USERS = [
     name: 'Victoria Vance',
     email: 'admin@cineloom.com',
     password: 'adminpassword',
-    phone: '+1 555 948 2011',
+    phone: '+91 98989 12345',
     role: 'ADMINISTRATOR',
-    city: 'New York',
+    city: 'Mumbai',
     createdAt: '2026-08-01'
   }
 ];
@@ -462,22 +462,22 @@ export const INITIAL_BOOKINGS = [
     movieTitle: 'The Odyssey: Horizon of Stars',
     theatreId: 'th-1',
     theatreName: 'Cineloom Luxe Grand',
-    theatreLocation: '42nd St & Broadway, Manhattan',
+    theatreLocation: 'Bandra Kurla Complex, Mumbai',
     screenName: 'Screen 1 (IMAX Laser)',
     format: 'IMAX 3D',
     showDate: '2026-08-16',
     showTime: '05:15 PM',
     seats: [
-      { seatNumber: 'E6', category: 'Premium', price: 18.0 },
-      { seatNumber: 'E7', category: 'Premium', price: 18.0 }
+      { seatNumber: 'E6', category: 'Premium', price: 320.0 },
+      { seatNumber: 'E7', category: 'Premium', price: 320.0 }
     ],
     seatCount: 2,
-    subtotal: 36.0,
-    discountAmount: 7.20,
+    subtotal: 640.0,
+    discountAmount: 128.0,
     appliedCoupon: 'CINELOOM20',
-    convenienceFee: 3.00,
-    taxAmount: 3.82,
-    totalAmount: 35.62,
+    convenienceFee: 70.00,
+    taxAmount: 104.76,
+    totalAmount: 686.76,
     payment: {
       paymentId: 'pay-tx-84910',
       method: 'CARD',

@@ -28,7 +28,7 @@ export function PaymentModal() {
   const [cardCvv, setCardCvv] = useState('782');
   const [cardHolder, setCardHolder] = useState('Alex Mercer');
   const [upiId, setUpiId] = useState('customer@okaxis');
-  const [selectedBank, setSelectedBank] = useState('Chase Bank');
+  const [selectedBank, setSelectedBank] = useState('HDFC Bank');
   const [simulateFailure, setSimulateFailure] = useState(false);
   const [processing, setProcessing] = useState(false);
 
@@ -89,7 +89,7 @@ export function PaymentModal() {
             <div>
               <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>Total Payable Amount</div>
               <div style={{ fontSize: '24px', fontWeight: 800, color: 'var(--accent-primary)', fontFamily: 'var(--font-heading)' }}>
-                ${pricingBreakdown.totalAmount.toFixed(2)}
+                ₹{pricingBreakdown.totalAmount.toFixed(2)}
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#10b981', fontSize: '12.5px', fontWeight: 600 }}>
@@ -185,7 +185,7 @@ export function PaymentModal() {
                     className="input-field"
                     value={upiId}
                     onChange={e => setUpiId(e.target.value)}
-                    placeholder="username@bank"
+                    placeholder="username@okaxis"
                     required
                   />
                 </div>
@@ -217,12 +217,12 @@ export function PaymentModal() {
                   value={selectedBank}
                   onChange={e => setSelectedBank(e.target.value)}
                 >
-                  <option value="Chase Bank">Chase Bank</option>
-                  <option value="Bank of America">Bank of America</option>
-                  <option value="Wells Fargo">Wells Fargo</option>
-                  <option value="Citibank">Citibank</option>
                   <option value="HDFC Bank">HDFC Bank</option>
+                  <option value="State Bank of India">State Bank of India (SBI)</option>
                   <option value="ICICI Bank">ICICI Bank</option>
+                  <option value="Axis Bank">Axis Bank</option>
+                  <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+                  <option value="Punjab National Bank">Punjab National Bank</option>
                 </select>
               </div>
             )}
@@ -263,7 +263,7 @@ export function PaymentModal() {
                 </>
               ) : (
                 <>
-                  <Lock size={16} /> Authorize & Pay ${pricingBreakdown.totalAmount.toFixed(2)}
+                  <Lock size={16} /> Authorize & Pay ₹{pricingBreakdown.totalAmount.toFixed(2)}
                 </>
               )}
             </button>

@@ -45,7 +45,7 @@ export function OffersView() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
                 <span className="badge badge-format">
-                  {c.discountType === 'PERCENTAGE' ? `${c.value}% OFF` : `$${c.value} FLAT OFF`}
+                  {c.discountType === 'PERCENTAGE' ? `${c.value}% OFF` : `₹${c.value} FLAT OFF`}
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                   Valid till {c.expiryDate}
@@ -54,7 +54,7 @@ export function OffersView() {
 
               <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px' }}>{c.description}</h3>
               <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '16px' }}>
-                Minimum booking subtotal of ${c.minBookingAmount?.toFixed(2)} required. Max discount: ${c.maxDiscount?.toFixed(2)}.
+                Minimum booking subtotal of ₹{c.minBookingAmount?.toFixed(0)} required. Max discount: ₹{c.maxDiscount?.toFixed(0)}.
               </p>
             </div>
 

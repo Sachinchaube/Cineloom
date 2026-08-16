@@ -64,7 +64,7 @@ export function BookingHistoryModal() {
 
     try {
       const updated = cancellationService.processCancellation(cancelModalBooking.id, cancelReason);
-      showSuccess(`Booking ${updated.bookingReference} cancelled. Refund of $${updated.cancellation?.refundAmount?.toFixed(2)} initiated.`);
+      showSuccess(`Booking ${updated.bookingReference} cancelled. Refund of ₹${updated.cancellation?.refundAmount?.toFixed(2)} initiated.`);
       setCancelModalBooking(null);
       setCancelEvaluation(null);
       fetchBookings();
@@ -193,7 +193,7 @@ export function BookingHistoryModal() {
                           {b.seats.map(s => s.seatNumber).join(', ')}
                         </div>
                         <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>
-                          Total Paid: ${b.totalAmount.toFixed(2)}
+                          Total Paid: ₹{b.totalAmount.toFixed(2)}
                         </div>
                       </div>
                     </div>
@@ -207,7 +207,7 @@ export function BookingHistoryModal() {
                         fontSize: '12.5px'
                       }}>
                         <span style={{ fontWeight: 700, color: '#f87171' }}>Refund Information:</span>{' '}
-                        ${b.cancellation.refundAmount?.toFixed(2)} ({b.cancellation.refundPercentage}% of base price) refunded to original payment method.
+                        ₹{b.cancellation.refundAmount?.toFixed(2)} ({b.cancellation.refundPercentage}% of base price) refunded to original payment method.
                         <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', marginTop: '2px' }}>
                           Reason: {b.cancellation.reason} • Ref: {b.cancellation.refundReference}
                         </div>
@@ -278,11 +278,11 @@ export function BookingHistoryModal() {
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
                       <span>Refund Amount:</span>
-                      <strong style={{ color: '#34d399', fontSize: '15px' }}>${cancelEvaluation.refundAmount.toFixed(2)}</strong>
+                      <strong style={{ color: '#34d399', fontSize: '15px' }}>₹{cancelEvaluation.refundAmount.toFixed(2)}</strong>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--text-muted)' }}>
                       <span>Convenience fee retained:</span>
-                      <span>${cancelEvaluation.convenienceFeeRetained?.toFixed(2)}</span>
+                      <span>₹{cancelEvaluation.convenienceFeeRetained?.toFixed(2)}</span>
                     </div>
                   </div>
 
@@ -314,7 +314,7 @@ export function BookingHistoryModal() {
                     onClick={handleConfirmCancellation}
                     disabled={processingCancel}
                   >
-                    {processingCancel ? 'Processing Refund...' : `Confirm Cancellation ($${cancelEvaluation.refundAmount.toFixed(2)} Refund)`}
+                    {processingCancel ? 'Processing Refund...' : `Confirm Cancellation (₹${cancelEvaluation.refundAmount.toFixed(2)} Refund)`}
                   </button>
                 </div>
               </div>

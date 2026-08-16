@@ -27,7 +27,7 @@ export const seatService = {
         return cat;
       }
     }
-    return categories[0] || { name: 'Regular', basePrice: 12.0 };
+    return categories[0] || { name: 'Regular', basePrice: 220.0 };
   },
 
   generateSeatLayout(showId) {

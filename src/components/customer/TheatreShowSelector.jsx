@@ -150,7 +150,7 @@ export function TheatreShowSelector({ movie, onBack }) {
                         <div className="showtime-time">{show.startTime}</div>
                         <div className="showtime-format">{show.format}</div>
                         <div className="showtime-price">
-                          From ${show.basePrice.toFixed(2)}
+                          From ₹{show.basePrice.toFixed(0)}
                         </div>
                         {isAlmostFull && (
                           <div style={{ fontSize: '9.5px', color: '#f87171', fontWeight: 700, marginTop: '2px' }}>

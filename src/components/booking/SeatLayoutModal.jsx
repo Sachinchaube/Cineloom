@@ -98,7 +98,7 @@ export function SeatLayoutModal() {
                           className={`seat-button ${btnClass}`}
                           disabled={seat.status === SeatStatus.BOOKED || (seat.status === SeatStatus.LOCKED && !isSelected)}
                           onClick={() => toggleSeatSelection(seat)}
-                          title={`${seat.seatNumber} (${seat.categoryName} - $${seat.basePrice})`}
+                          title={`${seat.seatNumber} (${seat.categoryName} - ₹${seat.basePrice})`}
                         >
                           {seat.column}
                         </button>
@@ -108,7 +108,7 @@ export function SeatLayoutModal() {
                 </div>
 
                 <span style={{ fontSize: '11px', color: 'var(--text-muted)', width: '60px', textAlign: 'right' }}>
-                  ${rowObj.basePrice.toFixed(0)}
+                  ₹{rowObj.basePrice.toFixed(0)}
                 </span>
               </div>
             ))}
@@ -121,7 +121,7 @@ export function SeatLayoutModal() {
               Seats: {selectedSeats.length ? selectedSeats.map(s => s.seatNumber).join(', ') : 'None selected'}
             </div>
             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-              Estimated: ${totalApprox.toFixed(2)} + taxes & fees
+              Estimated: ₹{totalApprox.toFixed(2)} + taxes & fees
             </div>
           </div>
 
