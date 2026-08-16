@@ -42,15 +42,6 @@ export function Navbar({
   const { openHistory } = useBooking();
   const [cityMenuOpen, setCityMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [gunnuMenuOpen, setGunnuMenuOpen] = useState(false);
-  const [gunnuModalOpen, setGunnuModalOpen] = useState(false);
-  const [selectedGunnuMember, setSelectedGunnuMember] = useState(GUNNU_MEMBERS[0]);
-
-  const handleOpenGunnuMember = (member) => {
-    setSelectedGunnuMember(member);
-    setGunnuModalOpen(true);
-    setGunnuMenuOpen(false);
-  };
 
   return (
     <>
@@ -298,54 +289,9 @@ export function Navbar({
                 Sign In
               </button>
             )}
-
-            {/* Gunnu Dynamic Button (Right-most corner) */}
-            <div className="gunnu-btn-container">
-              <button
-                type="button"
-                className="gunnu-dropdown-btn"
-                onClick={() => setGunnuMenuOpen(!gunnuMenuOpen)}
-                title="Gunnu Team Specials"
-                aria-label="Gunnu Team Specials"
-              >
-                <Sparkles size={14} color="var(--accent-gold)" />
-                <span>Gunnu</span>
-                <ChevronDown size={13} />
-              </button>
-
-              {gunnuMenuOpen && (
-                <div
-                  className="gunnu-menu anim-scale-up"
-                  onMouseLeave={() => setGunnuMenuOpen(false)}
-                >
-                  <div style={{ padding: '6px 10px', fontSize: '11px', color: 'var(--text-muted)', fontWeight: 700, borderBottom: '1px solid var(--border-light)' }}>
-                    Select Member:
-                  </div>
-                  {GUNNU_MEMBERS.map(member => (
-                    <button
-                      key={member.id}
-                      type="button"
-                      className="gunnu-menu-item"
-                      onClick={() => handleOpenGunnuMember(member)}
-                    >
-                      <User size={14} color="var(--accent-gold)" />
-                      <span>{member.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </nav>
-
-      {/* Gunnu Image Viewer Modal */}
-      <GunnuModal
-        isOpen={gunnuModalOpen}
-        onClose={() => setGunnuModalOpen(false)}
-        selectedMember={selectedGunnuMember}
-        onSelectMember={setSelectedGunnuMember}
-      />
     </>
   );
 }
