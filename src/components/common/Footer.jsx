@@ -1,5 +1,6 @@
 import React from 'react';
-import { Film, ShieldCheck, Heart } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 export function Footer() {
   return (
@@ -23,14 +24,7 @@ export function Footer() {
           flexWrap: 'wrap',
           gap: '20px'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div className="brand-icon" style={{ width: '30px', height: '30px' }}>
-              <Film size={16} />
-            </div>
-            <div className="brand-text" style={{ fontSize: '18px' }}>
-              Cine<span>loom</span>
-            </div>
-          </div>
+          <BrandLogo size="small" showSubtitle={true} />
 
           <div style={{
             display: 'flex',

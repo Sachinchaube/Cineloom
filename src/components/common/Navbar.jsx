@@ -15,6 +15,7 @@ import {
   User,
   SlidersHorizontal
 } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 export function Navbar({
   activeView,
@@ -40,17 +41,9 @@ export function Navbar({
     <nav className="navbar">
       <div className="navbar-inner">
         {/* Brand Logo */}
-        <div
-          className="brand-logo"
+        <BrandLogo
           onClick={() => setActiveView('movies')}
-        >
-          <div className="brand-icon">
-            <Film size={20} />
-          </div>
-          <div className="brand-text">
-            Cine<span>loom</span>
-          </div>
-        </div>
+        />
 
         {/* City Location Selector */}
         <div style={{ position: 'relative' }}>

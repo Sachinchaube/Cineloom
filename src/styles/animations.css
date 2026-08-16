@@ -36,6 +36,16 @@
   }
 }
 
+@keyframes logoApertureSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes logoShimmerSlide {
+  0% { left: -100%; }
+  40%, 100% { left: 200%; }
+}
+
 @keyframes screenCurveGlow {
   0%, 100% {
     opacity: 0.7;
@@ -83,4 +93,15 @@
 
 .anim-spin {
   animation: spin 1s linear infinite;
+}
+
+/* Brand Logo Animations */
+.brand-logo-container:hover .brand-icon-wrapper {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(229, 9, 20, 0.8) !important;
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6) !important;
+}
+
+.brand-logo-container:hover .brand-shimmer-beam {
+  animation: logoShimmerSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }

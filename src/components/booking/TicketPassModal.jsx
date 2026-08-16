@@ -13,6 +13,8 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import { BrandLogo } from '../common/BrandLogo';
+
 export function TicketPassModal() {
   const { latestBooking, isTicketPassOpen, setIsTicketPassOpen } = useBooking();
 
@@ -46,12 +48,7 @@ export function TicketPassModal() {
             <div className="ticket-notch-right" />
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--border-light)', paddingBottom: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Film size={18} color="var(--accent-primary)" />
-                <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '18px' }}>
-                  Cine<span>loom</span> Pass
-                </span>
-              </div>
+              <BrandLogo size="small" />
               <span className="badge badge-status-confirmed">CONFIRMED</span>
             </div>
 
