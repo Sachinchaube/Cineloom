@@ -515,6 +515,39 @@ button {
   gap: 4px;
 }
 
+/* Gunnu Corner Button (Above Footer at Bottom Right) */
+.gunnu-static-wrapper {
+  max-width: 1320px;
+  margin: 30px auto 0;
+  padding: 0 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gunnu-corner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e50914, #e5a93c);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 22px;
+  border-radius: var(--radius-full);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.35);
+  transition: all var(--transition-normal);
+  user-select: none;
+}
+
+.gunnu-corner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(229, 9, 20, 0.55), 0 0 14px rgba(229, 169, 60, 0.5);
+  border-color: #ffffff;
+}
+
 .modal-close-btn {
   display: flex;
   align-items: center;

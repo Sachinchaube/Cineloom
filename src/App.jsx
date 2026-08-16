@@ -10,7 +10,7 @@ import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { ToastContainer } from './components/common/ToastContainer';
 import { AuthModal } from './components/common/AuthModal';
-import { GunnuFloatingButton } from './components/common/GunnuFloatingButton';
+import { GunnuButton } from './components/common/GunnuButton';
 
 // Customer Components
 import { HeroBanner } from './components/customer/HeroBanner';
@@ -176,7 +176,9 @@ function MainApp() {
       <BookingHistoryModal />
       <AuthModal />
       <ToastContainer />
-      <GunnuFloatingButton />
+
+      {/* Gunnu Button in Bottom Right Corner (Above Footer) */}
+      <GunnuButton />
 
       {/* Footer */}
       <Footer />
